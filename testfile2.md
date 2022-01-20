@@ -1,5 +1,5 @@
 #Title
 
-[link] (https://mylink.com)
+[link] (https://something.com)
 
 text !
