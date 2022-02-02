@@ -29,7 +29,7 @@ public class MarkdownParseTest {
     @Test
     public void testFile3() throws IOException {
         String contents= Files.readString(Path.of("./test-file3.md"));
-        List<String> expect = List.of("www.ucsd.com");
+        List<String> expect = new ArrayList<String>();
         assertEquals(MarkdownParse.getLinks(contents), expect);
     }
 }
