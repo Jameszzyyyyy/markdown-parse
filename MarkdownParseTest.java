@@ -39,4 +39,25 @@ public class MarkdownParseTest {
         List<String> expect = new ArrayList<String>();
         assertEquals(MarkdownParse.getLinks(contents), expect);
     }
+
+    @Test
+    public void testSnippet1() throws IOException{
+        String contents = Files.readString(Path.of("./snippet1.md"));
+        List<String> expect = List.of("`google.come", "google.com", "ucsd.edu");
+        assertEquals(expect, MarkdownParse.getLinks(contents));
+    }
+
+    @Test
+    public void testSnippet2() throws IOException{
+        String contents = Files.readString(Path.of("./snippet2.md"));
+        List<String> expect = List.of("a.com", "a.com(())", "example.com");
+        assertEquals(expect, MarkdownParse.getLinks(contents));
+    }
+
+    @Test
+    public void testSnippet3() throws IOException{
+        String contents = Files.readString(Path.of("./snippet3.md"));
+        List<String> expect = List.of("https://www.twitter.com", "github.com", "https://cse.ucsd.edu/");
+        assertEquals(expect, MarkdownParse.getLinks(contents));
+    }
 }
